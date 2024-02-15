@@ -13,13 +13,16 @@ class Numbers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(15.0),
       child: GestureDetector(
         onTap: onTap,
         child: Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(15)),
+            ),
             alignment: Alignment.center,
-            height: 60,
-            width: 60,
+            height: 70,
+            width: 70,
             child: Text(
               operator,
               style: getOperatorFont(color: Colors.black),

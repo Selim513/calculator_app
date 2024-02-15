@@ -55,6 +55,7 @@ class _HomeViewState extends State<HomeView> {
                       children: [
                         Text(
                           outPut,
+                          overflow: TextOverflow.ellipsis,
                           style: getLargeFont(),
                         ),
                       ],
@@ -95,15 +96,46 @@ class _HomeViewState extends State<HomeView> {
                             OperatorWidgets(
                               operator: 'DEL',
                               onTap: () {
-                                outPut = outPut.substring(0, outPut.length - 1);
+                                if (outPut == '') {
+                                  null;
+                                } else {
+                                  outPut =
+                                      outPut.substring(0, outPut.length - 1);
+                                  setState(() {});
+                                }
+                              },
+                            ),
+                            OperatorWidgets(
+                              operator: '%',
+                              onTap: () {
+                                if (outPut.endsWith('*') ||
+                                    outPut.endsWith('.') ||
+                                    outPut.endsWith('-') ||
+                                    outPut.endsWith('+') ||
+                                    outPut.endsWith('%') ||
+                                    outPut.endsWith('/')) {
+                                  null;
+                                } else {
+                                  outPut += '%';
+                                }
+
                                 setState(() {});
                               },
                             ),
-                            const OperatorWidgets(operator: '%'),
                             OperatorWidgets(
                               operator: '÷',
                               onTap: () {
-                                outPut += '÷';
+                                if (outPut.endsWith('*') ||
+                                    outPut.endsWith('-') ||
+                                    outPut.endsWith('.') ||
+                                    outPut.endsWith('+') ||
+                                    outPut.endsWith('%') ||
+                                    outPut.endsWith('/')) {
+                                  null;
+                                } else {
+                                  outPut += '/';
+                                }
+
                                 setState(() {});
                               },
                             ),
@@ -138,7 +170,16 @@ class _HomeViewState extends State<HomeView> {
                             OperatorWidgets(
                               operator: 'x',
                               onTap: () {
-                                outPut += '*';
+                                if (outPut.endsWith('*') ||
+                                    outPut.endsWith('-') ||
+                                    outPut.endsWith('.') ||
+                                    outPut.endsWith('+') ||
+                                    outPut.endsWith('%') ||
+                                    outPut.endsWith('/')) {
+                                  null;
+                                } else {
+                                  outPut += '*';
+                                }
 
                                 setState(() {});
                               },
@@ -174,7 +215,16 @@ class _HomeViewState extends State<HomeView> {
                             OperatorWidgets(
                               operator: '+',
                               onTap: () {
-                                outPut += "+";
+                                if (outPut.endsWith('*') ||
+                                    outPut.endsWith('.') ||
+                                    outPut.endsWith('-') ||
+                                    outPut.endsWith('+') ||
+                                    outPut.endsWith('%') ||
+                                    outPut.endsWith('/')) {
+                                  null;
+                                } else {
+                                  outPut += "+";
+                                }
                                 setState(() {});
                               },
                             ),
@@ -209,7 +259,16 @@ class _HomeViewState extends State<HomeView> {
                             OperatorWidgets(
                               operator: '__',
                               onTap: () {
-                                outPut += '-';
+                                if (outPut.endsWith('*') ||
+                                    outPut.endsWith('.') ||
+                                    outPut.endsWith('-') ||
+                                    outPut.endsWith('+') ||
+                                    outPut.endsWith('%') ||
+                                    outPut.endsWith('/')) {
+                                  null;
+                                } else {
+                                  outPut += '-';
+                                }
                                 setState(() {});
                               },
                             ),
@@ -230,7 +289,16 @@ class _HomeViewState extends State<HomeView> {
                             Numbers(
                               operator: '.',
                               onTap: () {
-                                outPut += '.';
+                                if (outPut.endsWith('*') ||
+                                    outPut.endsWith('.') ||
+                                    outPut.endsWith('-') ||
+                                    outPut.endsWith('+') ||
+                                    outPut.endsWith('%') ||
+                                    outPut.endsWith('/')) {
+                                  null;
+                                } else {
+                                  outPut += '.';
+                                }
                                 setState(() {});
                               },
                             ),
